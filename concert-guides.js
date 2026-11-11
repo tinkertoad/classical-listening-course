@@ -50,10 +50,12 @@
   ];
 
   const rows=r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`;
+  const backLink='<p><button class="secondary" type="button" onclick="showTab(\'concertguides\')">← All concert guides</button></p>';
   guides.forEach(g=>{
     const c=concertData[g.concert];
     const page=mountExtraPage(g.id,g.nav,'♬');
-    page.innerHTML=`<div class="eyebrow">${esc(g.eyebrow)}</div><h2>${g.title}</h2><p class="section-intro">${esc(g.intro)}</p>
+    document.querySelector('.nav [data-tab="'+g.id+'"]').remove();
+    page.innerHTML=`${backLink}<div class="eyebrow">${esc(g.eyebrow)}</div><h2>${g.title}</h2><p class="section-intro">${esc(g.intro)}</p>
       <div class="card"><h3>The programme</h3><ul>${c.works.map(w=>`<li>${esc(w)}</li>`).join('')}</ul><p class="small">${esc(c.extra)}</p><a class="secondary" href="${c.url}" target="_blank" rel="noopener">TSO programme ↗</a></div>
       ${g.works.map(w=>`<section class="session"><h3 style="margin-top:28px">${esc(w.name)}</h3><div class="card"><p>${esc(w.before)}</p></div><table><thead><tr><th>Section</th><th>What it is</th><th>Listen for</th></tr></thead><tbody>${w.rows.map(rows).join('')}</tbody></table><div class="note"><strong>Reflection:</strong><ul>${w.q.map(q=>`<li>${esc(q)}</li>`).join('')}</ul></div></section>`).join('')}
       <div class="card"><h3>After the concert</h3><p>${esc(g.compare)}</p></div>
@@ -61,6 +63,21 @@
       <div class="note">These guides describe each movement but do not yet have recording timestamps like the Messiah guide. Pick a recording you like and we can add them.</div>`;
     c.button=g.id;
   });
+
+  // Hub page: one sidebar entry, all guides listed.
+  const hub=mountExtraPage('concertguides','TSO concert guides','♬');
+  document.querySelector('.nav [data-tab="concertguides"]').remove();
+  const hubNav=document.querySelector('.nav [data-tab="messiah"]');
+  hubNav.dataset.tab='concertguides';hubNav.innerHTML='♬ &nbsp; TSO concert guides';
+  const guideFor=['messiah','eroica-guide','violin-guide'];
+  const guideNote=['Includes recording timestamps. Tap a time to play it in the page.','Movement-by-movement guide, with sources.','Movement-by-movement guide, with sources.'];
+  hub.innerHTML=`<div class="eyebrow">The concert season</div><h2>TSO concert guides</h2><p class="section-intro">One guide for each Toronto Symphony Orchestra concert on your course. Open a guide to prepare before the concert and to listen with more attention.</p>
+    <div class="cards">${concertData.map((c,i)=>`<article class="card"><div class="number">${esc(c.date)}</div><h3>${esc(c.name)}</h3><div class="label">Programme</div><ul>${c.works.map(w=>`<li>${esc(w)}</li>`).join('')}</ul><p class="small">${esc(guideNote[i])}</p><div class="actions"><button class="primary" type="button" onclick="showTab('${guideFor[i]}')">Open guide →</button></div></article>`).join('')}</div>`;
+  const messiahPage=document.getElementById('messiah');
+  if(messiahPage)messiahPage.insertAdjacentHTML('afterbegin',backLink);
+  // Keep "TSO concert guides" highlighted while any of the three guides is open.
+  const baseShowTab=showTab;
+  showTab=function(tab,...rest){baseShowTab(tab,...rest);if(guideFor.includes(tab))hubNav.classList.add('active')};
   document.getElementById('allConcerts').innerHTML=concertData.map(concertCard).join('');
   const note=document.querySelector('#concerts .note');
   if(note)note.textContent='Each concert has its own listening guide. The Messiah guide includes recording timestamps; the February and April guides describe each movement and what to listen for.';
