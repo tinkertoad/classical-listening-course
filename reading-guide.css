@@ -1,0 +1,9 @@
+.reading-assignment{margin:14px 0;padding:14px 16px;border:1px solid #d5e4d9;border-radius:11px;background:#f2f7ef}
+.reading-assignment h4{margin:0 0 7px;color:#285746;font-size:15px}
+.reading-assignment p{margin:5px 0;font-size:13px}
+.reading-assignment ol{margin:7px 0 0;padding-left:22px;font-size:13px}
+.reading-schedule{display:grid;gap:12px}
+.reading-schedule article{background:white;border:1px solid #e1e8dc;border-radius:12px;padding:17px}
+.reading-schedule h3{font-size:19px;margin:3px 0 7px}
+.reading-schedule textarea{width:100%;min-height:105px;box-sizing:border-box;padding:12px;border:1px solid #cbdad1;border-radius:9px;font:inherit;resize:vertical}
+.reading-nudge{font-size:12px;color:#527061}

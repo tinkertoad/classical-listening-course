@@ -1,0 +1,38 @@
+.study-shell{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(340px,1fr);gap:20px;align-items:start}
+.study-video-panel,.study-notes-panel{background:#fff;border:1px solid #dce4dc;border-radius:16px;padding:20px;box-shadow:0 8px 28px #1b3f2a0b}
+.study-video{width:100%;aspect-ratio:16/9;background:#172923;border-radius:11px;display:block}
+.study-video-panel h3,.study-notes-panel h3{margin:8px 0 12px}
+.study-tip{font-size:13px;line-height:1.55;color:#53635c;margin-top:10px}
+.study-toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:14px 0}
+.study-toolbar button,.study-toolbar a{padding:9px 12px;border-radius:9px;border:1px solid #b9d2c7;background:#edf5ef;color:#1c5a4c;text-decoration:none;font-size:13px;font-weight:700;cursor:pointer}
+.study-notes-panel label{font-size:13px;font-weight:700;display:block;margin:13px 0 6px;color:#234e43}
+.study-notes-panel textarea{width:100%;box-sizing:border-box;min-height:82px;padding:11px;border:1px solid #cbdad1;border-radius:9px;font:inherit;line-height:1.5;resize:vertical;background:#fcfefc;color:#173b30}
+.study-prompt{background:#f1f6ed;border-left:3px solid #7caa90;border-radius:7px;padding:12px 14px;font-size:14px;line-height:1.55}
+.study-save{font-size:12px;color:#46705f}
+.study-timestamp-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.study-timestamp{display:flex;gap:8px;align-items:center;background:#f7faf7;border:1px solid #e2eae3;border-radius:9px;padding:8px}
+.study-timestamp button{background:#d9ebe0;border:0;border-radius:7px;padding:7px;color:#1d5a49;cursor:pointer}
+.study-timestamp span{font-size:13px;overflow-wrap:anywhere}
+.study-glossary{margin-top:16px;border-top:1px solid #e1e9e2;padding-top:14px}
+.study-glossary input{width:100%;box-sizing:border-box;border:1px solid #cbdad1;border-radius:9px;padding:10px;font:inherit}
+.study-glossary-results{max-height:220px;overflow:auto;margin-top:8px}
+.study-term{padding:9px 0;border-bottom:1px solid #e9eee9;font-size:13px}
+.study-term strong{color:#1f574b}
+.study-nav{display:flex;gap:9px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.study-nav select{min-width:220px;max-width:100%;padding:9px;border:1px solid #cbdad1;border-radius:9px;background:#fff}
+.study-lesson-cta{padding:16px 18px;margin:16px 0;background:#e6f2e9;border:1px solid #a7ceba;border-radius:13px}.study-lesson-cta .study-launch{display:block;width:100%;padding:15px 18px;font-size:16px;font-weight:750;border-radius:10px;cursor:pointer}.study-lesson-cta p{font-size:13px;color:#426456;margin:9px 0 0;line-height:1.5}.lessonhead+.study-lesson-cta+.details{grid-template-columns:minmax(0,1fr)}
+@media(max-width:900px){.study-shell{grid-template-columns:1fr}.study-video-panel,.study-notes-panel{padding:15px}.study-video-panel{position:static}}
+@media(min-width:901px){.study-video-panel{position:sticky;top:12px}}
+/* Focused lecture workspace: remove the course chrome and use the full viewport. */
+body.study-focused{background:#f4f7f2}
+body.study-focused>.top,body.study-focused>.hero,body.study-focused .sidebar,body.study-focused main>.foot{display:none!important}
+body.study-focused .shell.layout{display:block;max-width:none;width:100%;padding:16px 22px 32px;margin:0}
+body.study-focused .layout>main{width:100%;min-width:0}
+body.study-focused #studymode{width:100%}
+body.study-focused #studymode>.eyebrow,body.study-focused #studymode>h2,body.study-focused #studymode>p.compact{display:none}
+body.study-focused .study-shell{grid-template-columns:minmax(0,1.65fr) minmax(380px,1fr);gap:18px}
+body.study-focused .study-video-panel,body.study-focused .study-notes-panel{padding:18px}
+body.study-focused .study-video-panel{top:10px}
+body.study-focused .study-nav{margin-bottom:10px}
+body.study-focused .study-nav:before{content:'LECTURE STUDY MODE';font-size:12px;font-weight:800;letter-spacing:.1em;color:#345e50;margin-right:auto}
+@media(max-width:960px){body.study-focused .study-shell{grid-template-columns:1fr}body.study-focused .shell.layout{padding:12px}body.study-focused .study-nav:before{flex-basis:100%}}
