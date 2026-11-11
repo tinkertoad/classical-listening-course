@@ -2,7 +2,7 @@
 // YouTube Music app on a phone) drops the &t= timestamp, so these links play here instead.
 (function(){
   const style=document.createElement('style');
-  style.textContent=`#ytdock{position:fixed;left:0;right:0;bottom:0;z-index:9000;background:#16322b;color:#fff;box-shadow:0 -4px 18px rgba(0,0,0,.3);display:none}
+  style.textContent=`#ytdock{position:fixed;left:0;right:0;bottom:0;z-index:10000;background:#16322b;color:#fff;box-shadow:0 -4px 18px rgba(0,0,0,.3);display:none}
   #ytdock.open{display:block}
   #ytdock .ytbar{display:flex;align-items:center;gap:10px;padding:8px 12px;font-size:13px}
   #ytdock .ytbar span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
