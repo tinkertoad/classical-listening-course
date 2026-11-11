@@ -1,4 +1,4 @@
-# Alex's Music Academy
+# A Personal Listening Journey
 
 Static site (no build, no backend). Progress and journal live in localStorage.
 
