@@ -1,5 +1,5 @@
 // Study Mode reuses the course's existing per-lecture notes store and signed-in sync.
-const studyStyles=document.createElement('link');studyStyles.rel='stylesheet';studyStyles.href='/study-mode.css';document.head.append(studyStyles);
+const studyStyles=document.createElement('link');studyStyles.rel='stylesheet';studyStyles.href='study-mode.css';document.head.append(studyStyles);
 const yaleVideoFiles=[
 'musi112_01_090408','musi112_02_090908','musi112_03_091108','musi112_04_091608','musi112_05_091808','musi112_06_092308','musi112_07_092508','musi112_08_093008','musi112_09_100708','musi112_10_100908','musi112_11_101408','musi112_12_101608','musi112_13_102108','musi112_14_102308','musi112_15_103008','musi112_16_110408','musi112_17_111108','musi112_18_111308','musi112_19_111808','musi112_20_112008','musi112_21_120208','musi112_22_120408','musi112_23_121108'];
 let currentStudyLesson=1;
